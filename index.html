@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TennisRank Pro 🎾</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="court-lines"></div>
+
+<header class="navbar">
+  <div class="logo">🎾 TennisRank <span>Pro</span></div>
+  <nav>
+    <a href="index.html" class="active"><i class="fas fa-trophy"></i> Ranking</a>
+    <a href="partidas.html"><i class="fas fa-table-tennis-paddle-ball"></i> Partidas</a>
+    <a href="jogadores.html"><i class="fas fa-user"></i> Jogadores</a>
+    <a href="comparador.html"><i class="fas fa-chart-bar"></i> Comparador</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>🏆 Ranking Mundial</h2>
+    <p>Rankings em tempo real com métricas avançadas</p>
+  </section>
+
+  <section class="filtros-ranking">
+    <div class="filtros-grid">
+      <button class="filtro-btn active" onclick="ordenar('elo')"><i class="fas fa-star"></i> ELO Rating</button>
+      <button class="filtro-btn" onclick="ordenar('vitorias')"><i class="fas fa-trophy"></i> Mais Vitórias</button>
+      <button class="filtro-btn" onclick="ordenar('derrotas')"><i class="fas fa-times-circle"></i> Mais Derrotas</button>
+      <button class="filtro-btn" onclick="ordenar('pontos')"><i class="fas fa-arrow-up"></i> Mais Pontos</button>
+      <button class="filtro-btn" onclick="ordenar('menosPontos')"><i class="fas fa-arrow-down"></i> Menos Pontos</button>
+      <button class="filtro-btn" onclick="ordenar('aces')"><i class="fas fa-bolt"></i> Mais Aces</button>
+      <button class="filtro-btn" onclick="ordenar('winners')"><i class="fas fa-fire"></i> Mais Winners</button>
+      <button class="filtro-btn" onclick="ordenar('erros')"><i class="fas fa-exclamation-triangle"></i> Menos Erros</button>
+      <button class="filtro-btn" onclick="ordenar('clutch')"><i class="fas fa-heart"></i> Clutch Factor</button>
+      <button class="filtro-btn" onclick="ordenar('forma')"><i class="fas fa-chart-line"></i> Melhor Forma</button>
+    </div>
+    <div class="filtro-superficie">
+      <label>Superfície:</label>
+      <button class="sup-btn active" onclick="filtrarSuperficie('todas')">Todas</button>
+      <button class="sup-btn clay" onclick="filtrarSuperficie('clay')">🟫 Clay</button>
+      <button class="sup-btn hard" onclick="filtrarSuperficie('hard')">🔵 Hard</button>
+      <button class="sup-btn grass" onclick="filtrarSuperficie('grass')">🟢 Grass</button>
+    </div>
+  </section>
+
+  <section class="ranking-table-section">
+    <div class="table-header">
+      <span>Pos.</span>
+      <span>Jogador</span>
+      <span>ELO</span>
+      <span>V/D</span>
+      <span>Pontos</span>
+      <span>Aces</span>
+      <span>Winners</span>
+      <span>1º Saque%</span>
+      <span>Clutch</span>
+      <span>Forma</span>
+    </div>
+    <div id="ranking-list"></div>
+  </section>
+</main>
+
+<footer>
+  <p>🎾 TennisRank Pro — Dados e métricas avançadas do tênis</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>renderRanking();</script>
+</body>
+</html>

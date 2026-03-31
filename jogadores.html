@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogadores — TennisRank Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="court-lines"></div>
+
+<header class="navbar">
+  <div class="logo">🎾 TennisRank <span>Pro</span></div>
+  <nav>
+    <a href="index.html"><i class="fas fa-trophy"></i> Ranking</a>
+    <a href="partidas.html"><i class="fas fa-table-tennis-paddle-ball"></i> Partidas</a>
+    <a href="jogadores.html" class="active"><i class="fas fa-user"></i> Jogadores</a>
+    <a href="comparador.html"><i class="fas fa-chart-bar"></i> Comparador</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2><i class="fas fa-user-plus"></i> Gerenciar Jogadores</h2>
+    <p>Cadastre novos jogadores no sistema</p>
+  </section>
+
+  <div class="form-container" style="max-width:600px">
+    <div class="form-card">
+      <h3><i class="fas fa-user-plus"></i> Novo Jogador</h3>
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input type="text" id="novoNome" placeholder="Ex: Carlos Alcaraz">
+      </div>
+      <div class="form-group">
+        <label>Nacionalidade</label>
+        <input type="text" id="novoPais" placeholder="Ex: Espanha">
+      </div>
+      <div class="form-group">
+        <label>Mão dominante</label>
+        <select id="novoMao">
+          <option value="Direita">Direita</option>
+          <option value="Esquerda">Esquerda</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Superfície favorita</label>
+        <select id="novoSup">
+          <option value="clay">Clay (Saibro)</option>
+          <option value="hard">Hard (Duro)</option>
+          <option value="grass">Grass (Grama)</option>
+        </select>
+      </div>
+      <button class="btn-registrar" onclick="cadastrarJogador()" style="margin-top: 15px;">
+        <i class="fas fa-plus"></i> Cadastrar
+      </button>
+    </div>
+
+    <div class="form-card">
+      <h3><i class="fas fa-users"></i> Jogadores Cadastrados</h3>
+      <div id="lista-jogadores"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>🎾 TennisRank Pro — Dados e métricas avançadas do tênis</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>renderListaJogadores();</script>
+</body>
+</html>

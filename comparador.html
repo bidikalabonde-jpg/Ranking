@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador — TennisRank Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="court-lines"></div>
+
+<header class="navbar">
+  <div class="logo">🎾 TennisRank <span>Pro</span></div>
+  <nav>
+    <a href="index.html"><i class="fas fa-trophy"></i> Ranking</a>
+    <a href="partidas.html"><i class="fas fa-table-tennis-paddle-ball"></i> Partidas</a>
+    <a href="jogadores.html"><i class="fas fa-user"></i> Jogadores</a>
+    <a href="comparador.html" class="active"><i class="fas fa-chart-bar"></i> Comparador</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2><i class="fas fa-chart-bar"></i> Comparador de Jogadores</h2>
+    <p>Compare estatísticas entre dois jogadores lado a lado</p>
+  </section>
+
+  <div class="comparador-container">
+    <div class="comparador-selects">
+      <div class="comp-select">
+        <label>Jogador 1</label>
+        <select id="compJ1" onchange="comparar()">
+          <option value="">Selecione...</option>
+        </select>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="comp-select">
+        <label>Jogador 2</label>
+        <select id="compJ2" onchange="comparar()">
+          <option value="">Selecione...</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="comparador-resultado"></div>
+  </div>
+</main>
+
+<footer>
+  <p>🎾 TennisRank Pro — Dados e métricas avançadas do tênis</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>initComparador();</script>
+</body>
+</html>

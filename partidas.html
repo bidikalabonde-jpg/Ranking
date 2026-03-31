@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Partida — TennisRank Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="court-lines"></div>
+
+<header class="navbar">
+  <div class="logo">🎾 TennisRank <span>Pro</span></div>
+  <nav>
+    <a href="index.html"><i class="fas fa-trophy"></i> Ranking</a>
+    <a href="partidas.html" class="active"><i class="fas fa-table-tennis-paddle-ball"></i> Partidas</a>
+    <a href="jogadores.html"><i class="fas fa-user"></i> Jogadores</a>
+    <a href="comparador.html"><i class="fas fa-chart-bar"></i> Comparador</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>📋 Registrar Partida</h2>
+    <p>Insira apenas os dados básicos e o placar. Nosso algoritmo <b>estimará todas as métricas avançadas</b> automaticamente!</p>
+  </section>
+
+  <div class="form-container">
+
+    <!-- DADOS BÁSICOS -->
+    <div class="form-card">
+      <h3><i class="fas fa-info-circle"></i> Onde e Quando?</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Torneio</label>
+          <input type="text" id="torneio" placeholder="Ex: Torneio do Clube">
+        </div>
+        <div class="form-group">
+          <label>Categoria</label>
+          <select id="categoria">
+            <option value="Amador">Amador</option>
+            <option value="ITF">ITF / Pro-Am</option>
+            <option value="Challenger">Challenger</option>
+            <option value="ATP 250">ATP 250</option>
+            <option value="ATP 500">ATP 500</option>
+            <option value="Masters 1000">Masters 1000</option>
+            <option value="Grand Slam">Grand Slam</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Data</label>
+          <input type="date" id="data">
+        </div>
+        <div class="form-group">
+          <label>Superfície</label>
+          <select id="superficie">
+            <option value="clay">🟫 Clay (Saibro)</option>
+            <option value="hard">🔵 Hard (Duro)</option>
+            <option value="grass">🟢 Grass (Grama)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFRONTO E PLACAR -->
+    <div class="form-card versus-card">
+      <h3><i class="fas fa-users"></i> Confronto & Placar</h3>
+      <div class="versus-container">
+        <!-- Jogador 1 -->
+        <div class="player-side">
+          <h4>Jogador 1</h4>
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" id="j1nome" placeholder="Seu nome ou J1">
+          </div>
+          <div class="score-sets" id="sets-j1">
+            <label style="margin-top:10px;">Games Vencidos por Set</label>
+            <div class="sets-row">
+              <input type="number" class="set-input" id="j1s1" placeholder="1º" min="0" max="7">
+              <input type="number" class="set-input" id="j1s2" placeholder="2º" min="0" max="7">
+              <input type="number" class="set-input" id="j1s3" placeholder="3º" min="0" max="7">
+            </div>
+          </div>
+        </div>
+
+        <div class="vs-badge">VS</div>
+
+        <!-- Jogador 2 -->
+        <div class="player-side">
+          <h4>Jogador 2</h4>
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" id="j2nome" placeholder="Adversário ou J2">
+          </div>
+          <div class="score-sets">
+            <label style="margin-top:10px;">Games Vencidos por Set</label>
+            <div class="sets-row">
+              <input type="number" class="set-input" id="j2s1" placeholder="1º" min="0" max="7">
+              <input type="number" class="set-input" id="j2s2" placeholder="2º" min="0" max="7">
+              <input type="number" class="set-input" id="j2s3" placeholder="3º" min="0" max="7">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-registrar" onclick="registrarPartida()">
+      <i class="fas fa-magic"></i> Salvar e Gerar Estatísticas Automáticas
+    </button>
+
+    <!-- HISTÓRICO -->
+    <div class="form-card" id="historico-card" style="margin-top: 20px;">
+      <h3><i class="fas fa-history"></i> Histórico de Partidas</h3>
+      <div id="historico-lista"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>🎾 TennisRank Pro — Algoritmos preditivos e dados</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+  // Inicializando a data de hoje por padrão
+  document.getElementById('data').valueAsDate = new Date();
+  renderHistorico();
+</script>
+</body>
+</html>
